@@ -1,5 +1,5 @@
 
-name: Publish pymd-frontmatter 🐍 📦 to PyPI & TestPyPI
+name: Publish pymd-frontmatter 🐍 📦 to PyPI and TestPyPI
 
 on: push
 
