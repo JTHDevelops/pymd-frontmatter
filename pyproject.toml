@@ -8,25 +8,24 @@ authors = [
   { name="J.T. Hartzfeld", email="johnathan.t.hartzfeld@gmail.com" },
 ]
 description = "A FrontMatter parser/extractor for python-markdown"
-long_description = "Not much to it, really."
-version = "0.0.31"
+version = "0.0.33"
 requires-python = ">=3.11"
 dependencies = [
     "Markdown>=3.4.1",
     "PyYAML>=6.0"
 ]
+
 readme = "README.md"
-license = "MIT"
 classifiers = ["Programming Language :: Python :: 3",
 "License :: OSI Approved :: MIT License",
 "Operating System :: OS Independent",
 ]
 
-[project.urls]
-"Homepage" = "https://github.com/JTHartzfeld/pymd-frontmatter"
-"Bug Tracker" = "https://github.com/JTHartzfeld/pymd-frontmatter/issues"
-
 
 [project.entry-points."markdown.extensions"]
 frontmatter = "pymd_frontmatter:FrontMatterExtension"
 
+
+[project.urls]
+"Homepage" = "https://github.com/JTHartzfeld/pymd-frontmatter"
+"Bug Tracker" = "https://github.com/JTHartzfeld/pymd-frontmatter/issues"
