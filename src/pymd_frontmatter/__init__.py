@@ -19,6 +19,8 @@ class FrontMatterParser(Preprocessor):
 	
 	def __init__(self, md:markdown.core.Markdown, **kwargs):
 		super().__init__(**kwargs)
+		self.config = {
+		}
 		self.md = md
 		if self.md:
 			setattr(self.md, 'frontmatter', {})
@@ -26,8 +28,8 @@ class FrontMatterParser(Preprocessor):
 		
 	
 	def run(self, lines:list[str]) -> list[str]:
-		'''If frontmatter is present, extract it and store it in 
-			self.md.frontmatter attribute.
+		'''If frontmatter is present, extract it and store it in the
+			Markdown object's frontmatter attribute.
 		'''
 		if lines[0] in ('---\n', '---'):
 			numlines=len(lines)
@@ -38,13 +40,13 @@ class FrontMatterParser(Preprocessor):
 			if ender>0:
 				FMtext = '\n'.join(lines[1:ender])
 				lines=lines[ender+1:]
-				self.md.frontmatter = yaml.load(FMtext, yaml.Loader)
+				self.md.frontmatter.update(yaml.load(FMtext, yaml.Loader))
 		return lines
 	
 	def reset(self):
 		'''Clear the frontmatter object for the next document.
 		'''
-		self.md.frontmatter={}
+		self.md.frontmatter.clear()
 		super().reset()
 	
 class FrontMatterExtension(Extension):
